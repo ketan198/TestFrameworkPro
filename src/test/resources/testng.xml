@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" data-provider-thread-count="3">
+	
+
+	<listeners>
+
+		<listener class-name="com.qa.listners.CustomListeners" />
+		<listener class-name="com.qa.listners.MethodInterceptor" />
+
+	</listeners>
+
+
+
+	<test name="Test" thread-count="3" parallel="methods">
+		
+		<classes>
+
+			<class name="com.qa.testcases.LoginTest" />
+			
+
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+<!-- data-provider-thread-count="2" -->
