@@ -17,7 +17,7 @@ import com.qa.utilities.PropertiesUtil;
 
 /**
  * @author Ketan Tiwari
-
+	This Class is helpful for initializing , getting test mode etc 
  *
  */
 
