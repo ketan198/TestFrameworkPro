@@ -1,12 +1,10 @@
 package com.qa.listners;
 
-import java.io.IOException;
 import java.util.Objects;
 
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
-
 import org.testng.ITestResult;
 
 import com.qa.CustomAnnotations.FrameworkAnnotations;

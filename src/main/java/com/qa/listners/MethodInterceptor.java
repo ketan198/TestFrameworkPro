@@ -63,9 +63,7 @@ public class MethodInterceptor implements IMethodInterceptor {
 	} catch (Exception e) {
 		
 		throw new RuntimeException("Something went wrong while Method Interseption" , e);
-//		e.printStackTrace();
-		
-		
+
 	}
 			
 		

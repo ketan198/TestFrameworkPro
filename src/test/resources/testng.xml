@@ -15,10 +15,8 @@
 	<test name="Test" thread-count="3" parallel="methods">
 		
 		<classes>
-
+		
 			<class name="com.qa.testcases.LoginTest" />
-			
-
 
 		</classes>
 	</test> <!-- Test -->

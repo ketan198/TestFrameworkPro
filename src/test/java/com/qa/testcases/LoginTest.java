@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.qa.CustomAnnotations.FrameworkAnnotations;
 import com.qa.constants.FrameworkConstants;
 import com.qa.enums.TestCategoryType;
+import com.qa.listners.RetryFailedTest;
 import com.qa.pages.LoginPage;
 import com.qa.utilities.DataProviderClass;
 
@@ -45,7 +46,7 @@ public class LoginTest extends TestBase {
 	 */
 
 	@FrameworkAnnotations(author = {"Ketan"}, category = {TestCategoryType.REGRESSION, TestCategoryType.SMOKE})
-	@Test(dataProvider = "dp" , dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "dp" , dataProviderClass = DataProviderClass.class , retryAnalyzer = RetryFailedTest.class)
 	public void logintest(Map<String, String> map) {
 		
 		
