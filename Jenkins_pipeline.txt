@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    triggers {
+        pollSCM('* * * * *')  
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/ketan198/TestFrameworkPro.git'
+            }
+        }
+
+        stage('Start Selenium Grid') {
+            steps {
+                bat 'docker-compose up -d'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
+        stage('Stop Grid') {
+            steps {
+                bat 'docker-compose down'
+            }
+        }
+    }
+}
