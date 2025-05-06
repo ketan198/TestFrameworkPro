@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build and Run Tests') {
             steps {
-                sh 'mvn clean test'
+                sh 'mvn test'
             }
         }
 
