@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/ketan198/TestFrameworkPro.git'
+		git branch: 'main',
+                url: 'https://github.com/ketan198/TestFrameworkPro.git'
             }
         }
 
