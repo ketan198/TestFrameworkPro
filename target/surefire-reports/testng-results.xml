@@ -1,25 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-22T20:43:59 IST" name="Suite" finished-at="2025-02-22T20:44:14 IST" duration-ms="14988">
+  <suite started-at="2025-05-06T13:14:33 IST" name="Suite" finished-at="2025-05-06T13:15:12 IST" duration-ms="39714">
     <groups>
     </groups>
-    <test started-at="2025-02-22T20:43:59 IST" name="Test" finished-at="2025-02-22T20:44:14 IST" duration-ms="14988">
-      <class name="com.qa.testcases.AdminPagetest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.AdminPagetest@4c432866]" started-at="2025-02-22T20:43:59 IST" name="setUp" finished-at="2025-02-22T20:44:09 IST" duration-ms="9528" status="PASS">
+    <test started-at="2025-05-06T13:14:33 IST" name="Test" finished-at="2025-05-06T13:15:12 IST" duration-ms="39714">
+      <class name="com.qa.testcases.LoginTest">
+        <test-method is-config="true" signature="setUp([Ljava.lang.Object;)[pri:0, instance:com.qa.testcases.LoginTest@6057aebb]" started-at="2025-05-06T13:14:33 IST" name="setUp" finished-at="2025-05-06T13:14:45 IST" duration-ms="11796" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@5f0f9947]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="Initilizewebsite_test()[pri:0, instance:com.qa.testcases.AdminPagetest@4c432866]" started-at="2025-02-22T20:44:09 IST" name="Initilizewebsite_test" finished-at="2025-02-22T20:44:14 IST" duration-ms="5206" status="PASS">
+        <test-method is-config="true" signature="setUp([Ljava.lang.Object;)[pri:0, instance:com.qa.testcases.LoginTest@6057aebb]" started-at="2025-05-06T13:14:33 IST" name="setUp" finished-at="2025-05-06T13:15:00 IST" duration-ms="26860" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@1aad0b1]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Initilizewebsite_test -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.qa.testcases.AdminPagetest@4c432866]" started-at="2025-02-22T20:44:14 IST" name="teardown" finished-at="2025-02-22T20:44:14 IST" duration-ms="213" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="logintest(java.util.Map)[pri:0, instance:com.qa.testcases.LoginTest@6057aebb]" started-at="2025-05-06T13:14:45 IST" name="logintest" description="Login logout functionality " data-provider="dp" finished-at="2025-05-06T13:14:47 IST" duration-ms="1608" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=secret_sauce, firstname=ketan, browser=chrome, testname=logintest, execute=yes, username=standard_user, lastname=tiwari}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logintest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.qa.testcases.LoginTest@6057aebb]" started-at="2025-05-06T13:14:47 IST" name="teardown" finished-at="2025-05-06T13:14:47 IST" duration-ms="252" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- com.qa.testcases.AdminPagetest -->
+        <test-method signature="newTest(java.util.Map)[pri:0, instance:com.qa.testcases.LoginTest@6057aebb]" started-at="2025-05-06T13:15:00 IST" name="newTest" description="new test functionality" data-provider="dp" finished-at="2025-05-06T13:15:11 IST" duration-ms="10919" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=passss, firstname=rohan, browser=firefox, testname=newTest, execute=yes, username=user2, lastname=karma}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //button[@id= 'react-burger-menu-btn'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 138.0.1, moz:accessibilityChecks: false, moz:buildID: 20250430203103, moz:debuggerAddress: 127.0.0.1:10377, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 35328, moz:profile: C:\Users\tiwar\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:10377/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 2db0b5a7-bd37-43a1-8925-10ec7dbb3dff]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //button[@id= 'react-burger-menu-btn'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 138.0.1, moz:accessibilityChecks: false, moz:buildID: 20250430203103, moz:debuggerAddress: 127.0.0.1:10377, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 35328, moz:profile: C:\Users\tiwar\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:10377/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 2db0b5a7-bd37-43a1-8925-10ec7dbb3dff
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.qa.factories.ExplicitWaitFactory.performExplicitWait(ExplicitWaitFactory.java:27)
+at com.qa.pages.basepage.click(basepage.java:17)
+at com.qa.pages.Homepage.click_menu(Homepage.java:16)
+at com.qa.testcases.LoginTest.newTest(LoginTest.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:80)
+at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.qa.testcases.LoginTest@6057aebb]" started-at="2025-05-06T13:15:11 IST" name="teardown" finished-at="2025-05-06T13:15:12 IST" duration-ms="910" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.qa.testcases.LoginTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
