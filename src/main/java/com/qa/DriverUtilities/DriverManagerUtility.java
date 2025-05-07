@@ -106,14 +106,17 @@ public final class DriverManagerUtility {
 	public static WebDriver getbrowser_testmode(String browser)  {
 		String testmode = PropertiesUtil.getPropertyValue(ConfigPropertiesEnums.TESTMODE);
 		DesiredCapabilities cap = new DesiredCapabilities(); //use ChromeOptions / Firefox options fo local
+		
 		driver = null ; 
 		if(testmode.equalsIgnoreCase("remote")) {
 			switch (browser.toLowerCase()) {
 			case "chrome":
+				cap.setCapability("headless", true);
 				cap.setBrowserName("chrome");
-
+				
 				break;
 			case "firefox":
+				cap.setCapability("headless", true);
 				cap.setBrowserName("firefox");
 
 				break;
