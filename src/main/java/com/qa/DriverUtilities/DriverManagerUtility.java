@@ -111,17 +111,17 @@ public final class DriverManagerUtility {
 		if(testmode.equalsIgnoreCase("remote")) {
 			switch (browser.toLowerCase()) {
 			case "chrome":
-				cap.setCapability("headless", true);
+//				cap.setCapability("headless", true);
 				cap.setBrowserName("chrome");
 				
 				break;
 			case "firefox":
-				cap.setCapability("headless", true);
+//				cap.setCapability("headless", true);
 				cap.setBrowserName("firefox");
 
 				break;
 			case "microsoftedge":
-				cap.setCapability("headless", true);
+//				cap.setCapability("headless", true);
 				cap.setBrowserName("MicrosoftEdge");
 
 				break;
