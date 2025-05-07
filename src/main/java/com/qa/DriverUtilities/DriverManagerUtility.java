@@ -121,6 +121,7 @@ public final class DriverManagerUtility {
 
 				break;
 			case "microsoftedge":
+				cap.setCapability("headless", true);
 				cap.setBrowserName("MicrosoftEdge");
 
 				break;
