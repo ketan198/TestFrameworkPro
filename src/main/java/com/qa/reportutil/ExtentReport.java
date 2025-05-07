@@ -84,13 +84,13 @@ public final class ExtentReport {
 			ExtentReportManager.unload();
 			
 		}
-		try {
-			Desktop.getDesktop().browse(new File(FrameworkConstants.getAlltestreportpath()).toURI());
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-			
-		}
+//		try {
+//			Desktop.getDesktop().browse(new File(FrameworkConstants.getAlltestreportpath()).toURI());
+//		} catch (IOException e) {
+//			
+//			e.printStackTrace();
+//			
+//		}
 	}
 	/**
 	 * Creates ExtentTest and set the test in ExtentReportMananger which uses ThreadLocal Class for thread safety.
