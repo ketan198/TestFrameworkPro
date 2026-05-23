@@ -2,10 +2,13 @@ package com.qa.DriverUtilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -28,23 +31,6 @@ public final class DriverManagerUtility {
 
 	}
 
-	private static ThreadLocal<WebDriver> trDriver = new ThreadLocal<>(); // Driver is delared via thread loacal class to make it thread safe 
-
-
-
-	public static void setDriver(WebDriver driver) { // This method sets the driver
-		trDriver.set(driver);
-	}
-
-	public static WebDriver getDriver() { // this method gets the driver instance 
-		return trDriver.get();
-	}
-
-	public static void unload() { // this method removes the driver 
-		trDriver.remove();
-	}
-	public static WebDriver driver;
-
 
 	/*
 	 * this method initializes the driver takes a input string for browser , and
@@ -58,14 +44,14 @@ public final class DriverManagerUtility {
 	 * @throws MalformedURLException
 	 */
 	public static void initializeDriver(String browser) { 
-
-		if(Objects.isNull(getDriver())) {
-			driver = getbrowser_testmode(browser);	
+		
+		if(Objects.isNull(DriverManager.getDriver())) { // this condition is used to check if the driver is null or not , if it is null then only it will initialize the driver and assign it to the thread local variable
+			DriverManager.setDriver(getbrowser_testmode(browser));
 
 		}
-		setDriver(driver);
-		getDriver().manage().window().maximize();
-		getDriver().get(PropertiesUtil.getPropertyValue(ConfigPropertiesEnums.TESTSITEURL));
+
+		DriverManager.getDriver().manage().window().maximize();
+		DriverManager.getDriver().get(PropertiesUtil.getPropertyValue(ConfigPropertiesEnums.TESTSITEURL));
 
 
 	}
@@ -75,9 +61,9 @@ public final class DriverManagerUtility {
 	//method for quiting the driver and unloading Threadloacal instance
 
 	public static void quit_driver() {
-		if(Objects.nonNull(getDriver())) {
-			getDriver().quit();
-			unload();
+		if(Objects.nonNull(DriverManager.getDriver())) {
+			DriverManager.getDriver().quit();
+			DriverManager.unload();
 		}
 	}
 
@@ -106,22 +92,22 @@ public final class DriverManagerUtility {
 	public static WebDriver getbrowser_testmode(String browser)  {
 		String testmode = PropertiesUtil.getPropertyValue(ConfigPropertiesEnums.TESTMODE);
 		DesiredCapabilities cap = new DesiredCapabilities(); //use ChromeOptions / Firefox options fo local
-		
-		driver = null ; 
+
+		WebDriver driver = null ; 
 		if(testmode.equalsIgnoreCase("remote")) {
 			switch (browser.toLowerCase()) {
 			case "chrome":
-//				cap.setCapability("headless", true);
+				//				cap.setCapability("headless", true);
 				cap.setBrowserName("chrome");
-				
+
 				break;
 			case "firefox":
-//				cap.setCapability("headless", true);
+				//				cap.setCapability("headless", true);
 				cap.setBrowserName("firefox");
 
 				break;
 			case "microsoftedge":
-//				cap.setCapability("headless", true);
+				//				cap.setCapability("headless", true);
 				cap.setBrowserName("MicrosoftEdge");
 
 				break;
@@ -133,7 +119,7 @@ public final class DriverManagerUtility {
 				driver = new RemoteWebDriver(new URL(PropertiesUtil.getPropertyValue(ConfigPropertiesEnums.REMOTEURL)),cap);
 			} 
 			catch (MalformedURLException e) {	
-				
+
 				throw new RuntimeException("Remote URL is not correct" , e);
 			}
 		}
@@ -144,11 +130,22 @@ public final class DriverManagerUtility {
 		if(testmode.equalsIgnoreCase("local")) {
 			switch (browser.toLowerCase()) {
 			case "chrome":
-//				ChromeOptions options = new ChromeOptions();
-//				options.addArguments("--headless");   use to set headless execution 
-				driver = new ChromeDriver();
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--disable-notifications"); //  use to set headless execution 
+
+				Map<String, Object> prefs = new HashMap<>();
+
+				prefs.put("credentials_enable_service", false);
+				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("profile.password_manager_leak_detection", false);
+
+				options.setExperimentalOption("prefs", prefs);
+
+				driver = new ChromeDriver(options);
 				break;
 			case "firefox":
+				//				FirefoxOptions foptions = new FirefoxOptions();
+				//				foptions.addArguments("--disable-notifications");
 				driver = new FirefoxDriver();
 				break;
 			case "microsoftedge":

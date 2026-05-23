@@ -16,6 +16,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 
+import com.qa.DriverUtilities.DriverManager;
 import com.qa.DriverUtilities.DriverManagerUtility;
 import com.qa.constants.FrameworkConstants;
 import com.qa.enums.ConfigPropertiesEnums;
@@ -60,7 +61,7 @@ public class TestUtils  {
 	
 	public void get_all_links() {
 		
-		List<WebElement> links = DriverManagerUtility.getDriver().findElements(By.tagName("a"));
+		List<WebElement> links = DriverManager.getDriver().findElements(By.tagName("a"));
 		
 		
 		for(WebElement link : links) {
@@ -83,7 +84,7 @@ public class TestUtils  {
 	
 	
 	public static String getbase64ScreenshotPath() {
-		TakesScreenshot ts = (TakesScreenshot)(DriverManagerUtility.getDriver());
+		TakesScreenshot ts = (TakesScreenshot)(DriverManager.getDriver());
 		File srcFile = ts.getScreenshotAs(OutputType.FILE);
 		String screenshot = ts.getScreenshotAs(OutputType.BASE64);
 		File destFile = new File(

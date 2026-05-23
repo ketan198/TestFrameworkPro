@@ -8,7 +8,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.qa.CustomAnnotations.FrameworkAnnotations;
-import com.qa.DriverUtilities.DriverManagerUtility;
+import com.qa.DriverUtilities.DriverManager;
 import com.qa.reportutil.ExtentLogger;
 import com.qa.reportutil.ExtentReport;
 
@@ -71,7 +71,7 @@ public class CustomListeners implements ITestListener,ISuiteListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		if (Objects.nonNull(DriverManagerUtility.getDriver())) {
+		if (Objects.nonNull(DriverManager.getDriver())) {
 			ExtentLogger.fail(result.getMethod().getMethodName() + "failed.", true);
 			ExtentLogger.fail(result.getThrowable().toString(), true);
 		}

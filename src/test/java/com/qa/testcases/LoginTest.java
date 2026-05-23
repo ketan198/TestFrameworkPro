@@ -1,21 +1,12 @@
 package com.qa.testcases;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Map;
 
-import org.apache.commons.collections4.map.HashedMap;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.CustomAnnotations.FrameworkAnnotations;
-import com.qa.constants.FrameworkConstants;
 import com.qa.enums.TestCategoryType;
-import com.qa.listners.RetryFailedTest;
 import com.qa.pages.LoginPage;
 import com.qa.utilities.DataProviderClass;
 
@@ -46,7 +37,7 @@ public class LoginTest extends TestBase {
 	 */
 
 	@FrameworkAnnotations(author = {"Ketan"}, category = {TestCategoryType.REGRESSION, TestCategoryType.SMOKE})
-	@Test(dataProvider = "dp" , dataProviderClass = DataProviderClass.class , retryAnalyzer = RetryFailedTest.class)
+	@Test(dataProvider = "dp" , dataProviderClass = DataProviderClass.class )
 	public void logintest(Map<String, String> map) {
 		
 		
@@ -65,7 +56,7 @@ public class LoginTest extends TestBase {
 	
 	}
 	
-	@FrameworkAnnotations(author = {"Ketan"}, category = {TestCategoryType.REGRESSION, TestCategoryType.SMOKE})
+	@FrameworkAnnotations(author = {"Ketan"}, category = {TestCategoryType.REGRESSION, TestCategoryType.SMOKE })
 	@Test(dataProvider = "dp", dataProviderClass = DataProviderClass.class)
 	public void newTest(Map<String, String> map) {
 		
@@ -85,6 +76,7 @@ public class LoginTest extends TestBase {
 	}
 	
 	
+	@FrameworkAnnotations(author = {"Ketan"}, category = {TestCategoryType.REGRESSION, TestCategoryType.SMOKE})
 	@Test(dataProvider = "dp", dataProviderClass = DataProviderClass.class)
 	public void newTest2(Map<String, String> map) {
 		
@@ -140,37 +132,37 @@ public class LoginTest extends TestBase {
 //	
 //	}
 	
-	@DataProvider(name = "loginTestdata", parallel =  true)
-	public Object[] getData() throws IOException{
-		
-		
-		FileInputStream fis = new FileInputStream(FrameworkConstants.getTestdatasheetPath());
-		XSSFWorkbook workbook = new XSSFWorkbook(fis);
-		XSSFSheet sheet = workbook.getSheet("TESTDATA");
-		int rownum = sheet.getLastRowNum();
-		int columnnum = sheet.getRow(0).getLastCellNum();
-		
-		Object[] data = new Object[rownum];
-		Map<String , String > map ;
-		
-		for(int i = 1 ; i <=rownum ; i++) {
-			map = new HashedMap<>();
-		for(int j = 0 ; j< columnnum ; j++) {
-			String key = sheet.getRow(0).getCell(j).toString();
-			String value = sheet.getRow(i).getCell(j).toString();
-			map.put(key, value);
-			
-			data[i-1] = map;
-			
-			
-		}
-		}
-		
-		workbook.close();
-		
-		return data;
-		
-	}
+//	@DataProvider(name = "loginTestdata", parallel =  true)
+//	public Object[] getData() throws IOException{
+//		
+//		
+//		FileInputStream fis = new FileInputStream(FrameworkConstants.getTestdatasheetPath());
+//		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+//		XSSFSheet sheet = workbook.getSheet("TESTDATA");
+//		int rownum = sheet.getLastRowNum();
+//		int columnnum = sheet.getRow(0).getLastCellNum();
+//		
+//		Object[] data = new Object[rownum];
+//		Map<String , String > map ;
+//		
+//		for(int i = 1 ; i <=rownum ; i++) {
+//			map = new HashedMap<>();
+//		for(int j = 0 ; j< columnnum ; j++) {
+//			String key = sheet.getRow(0).getCell(j).toString();
+//			String value = sheet.getRow(i).getCell(j).toString();
+//			map.put(key, value);
+//			
+//			data[i-1] = map;
+//			
+//			
+//		}
+//		}
+//		
+//		workbook.close();
+//		
+//		return data;
+//		
+//	}
 	
 
 }

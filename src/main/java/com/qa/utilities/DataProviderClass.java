@@ -50,9 +50,8 @@ public final class DataProviderClass {
 	  
 	  
 	  Object[] data = smalllist.toArray();
+		
 	  
-		
-		
 		return data;
 		
 	}

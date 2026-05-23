@@ -46,6 +46,7 @@ public final class PropertiesUtil {
 
 	public static String getPropertyValue(ConfigPropertiesEnums key) {
 
+		
 		if(PROP.getProperty(key.toString().toLowerCase())== null) {
 			throw new PropertyFileUsageException("The " + key + " specified here is null please check.");
 		}

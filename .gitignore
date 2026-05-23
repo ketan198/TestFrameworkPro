@@ -1,7 +1,53 @@
+# Maven
 /target/
 
-/JavaPractice/
+# TestNG Reports
+/test-output/
+/surefire-reports/
 
-/Rough/
+# Custom Reports
+/test-reports/
+/logs/
 
-/RoughSelenium/
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# IntelliJ
+/.idea/
+*.iml
+
+# VS Code
+/.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated annotation files
+/.apt_generated/
+/.apt_generated_tests/
+
+# Temporary files
+*.tmp
+*.log
+
+# Selenium videos/screenshots if generated
+/screenshots/
+/videos/
+
+# Extent Reports
+/ExtentReports/
+/extent-test-output/
+
+# Environment files
+.env
+
+
+#My rough files 
+# Rough files
+**/Rough/
+**/RoughTest.java
+**/JavaPractice/
+**/RoughSelenium/

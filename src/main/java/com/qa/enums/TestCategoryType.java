@@ -5,5 +5,6 @@ public enum TestCategoryType {
 	
 	REGRESSION,
 	SMOKE,
-	SANITY
+	SANITY,
+	NA
 }

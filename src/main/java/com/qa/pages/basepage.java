@@ -3,7 +3,7 @@ package com.qa.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.qa.DriverUtilities.DriverManagerUtility;
+import com.qa.DriverUtilities.DriverManager;
 import com.qa.enums.WaitStrategy;
 import com.qa.factories.ExplicitWaitFactory;
 import com.qa.reportutil.ExtentLogger;
@@ -32,7 +32,7 @@ public class basepage {
 
 	protected String getPageTitle() {
 
-		return DriverManagerUtility.getDriver().getTitle();
+		return DriverManager.getDriver().getTitle();
 
 
 	}

@@ -33,7 +33,7 @@ public final class ExtentReport {
 	
 	
 	private static ExtentReports extent ; 
-	private static ExtentTest test ; 
+//	private static ExtentTest test ; 
 	
 	/**
 	 * Responsible for initializing ExtentReports 
@@ -99,7 +99,7 @@ public final class ExtentReport {
 	 */
 	public static void createtest(String testcasename) {
 		
-		test = extent.createTest(testcasename);
+		ExtentTest test = extent.createTest(testcasename);
 		ExtentReportManager.setExtTest(test);
 	}
 	
